@@ -55,3 +55,6 @@ def unshorten(path):
     if not url:
         return render('not found')
     return redirect(url)
+
+if __name__ == "__main__":
+    app.run()
