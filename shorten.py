@@ -31,7 +31,9 @@ def path_hash(url):
     h = hashlib.md5()
     h.update(url.encode('utf-8'))
     r = random.Random(h.digest())
-    choices = r.choices(config.CHARSET, k=config.PATH_SIZE)
+    choices = []
+    for _ in range(config.PATH_SIZE):
+        choices.append(r.choice(config.CHARSET))
     return ''.join(choices)
 
 @app.route("/", methods=["GET"])
