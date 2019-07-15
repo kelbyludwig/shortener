@@ -48,6 +48,7 @@ def shorten():
         url = 'https://' + url
 
     path = path_hash(url)
+    app.logger.info('shortened url %s to path %s' % (url, path))
     URLS[path] = url
     return render(config.DOMAIN + '/%s' % path)
 
